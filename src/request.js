@@ -18,7 +18,7 @@ async function request (config, req) {
     const res = await read(config, req)
 
     res.config = req
-    res.request = { fromCache: true }
+    res.request = { ...req, fromCache: true }
 
     return { config, next: res }
   } catch (err) {
